@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .slds-visual-picker_vertical .slds-visual-picker__figure {
+        height: inherit !important;
+    }
+    .runtime_appointmentbookingFlowLocation .slds-visual-picker_vertical {
+        display: inline-flex !important;
+    }
+
+</style>
+<body>
+    <script src="https://avi-b-dev-ed.my.site.com/lightning/lightning.out.js"></script>
+    <script>
+        $Lightning.use("runtime_appointmentbooking:lightningOutGuest",    // name of the Lightning app
+            function() {                  
+                $Lightning.createComponent(
+                   "lightning:flow", // top-level component of your app
+                    { },                  // attributes to set on the component when created
+                    "lightningLocator",   // the DOM location to insert the component
+                    function(cmp) {
+                        console.log('Hi from callback');// callback when component is created and active on the page
+                        cmp.startFlow('Inbound_New_Guest_Appointment_V1');
+                    }
+                );
+            }, 'https://avi-b-dev-ed.my.site.com'  // Community endpoint
+        );
+    </script>
+    <div id="lexcontainer">
+
+        <p>Invoke the Lightning Component specified in the Script.</p>
+
+        </div>
+</body>
+</html>
